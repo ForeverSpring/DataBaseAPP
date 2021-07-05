@@ -1,0 +1,3 @@
+# DataBaseAPP
+EquipmentManagementSystem
+qt和mysql开发的设备管理系统
