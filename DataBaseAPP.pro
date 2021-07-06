@@ -16,33 +16,24 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     adduser.cpp \
     admininterface.cpp \
-    buyinterface.cpp \
     login.cpp \
     main.cpp \
     mainwindow.cpp \
-    option.cpp \
-    repair.cpp \
-    userinterface.cpp
+    option.cpp
 
 HEADERS += \
     adduser.h \
     admininterface.h \
-    buyinterface.h \
     login.h \
     mainwindow.h \
-    option.h \
-    repair.h \
-    userinterface.h
+    option.h
 
 FORMS += \
     adduser.ui \
     admininterface.ui \
-    buyinterface.ui \
     login.ui \
     mainwindow.ui \
-    option.ui \
-    repair.ui \
-    userinterface.ui
+    option.ui
 
 TRANSLATIONS += \
     DataBaseAPP_zh_CN.ts

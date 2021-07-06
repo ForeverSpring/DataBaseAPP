@@ -18,8 +18,6 @@ public:
 private slots:
     void on_btnsearch_s_clicked();
 
-    void on_btndelete_s_clicked();
-
     void on_btnreport_s_clicked();
 
     void on_btnrevert_s_clicked();
@@ -79,7 +77,6 @@ private slots:
     void on_btnsearch_User_clicked();
 
     void on_btninsert_User_clicked();
-
 
     void on_btndelete_User_clicked();
 

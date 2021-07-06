@@ -8,9 +8,6 @@
 #include <QString>
 #include <mainwindow.h>
 #include "admininterface.h"
-#include "userinterface.h"
-#include "buyinterface.h"
-#include "repair.h"
 #include "option.h"
 extern QSqlDatabase db;
 extern QString hostname,DBname;
@@ -36,12 +33,12 @@ bool link_mysql(QString username,QString password){
     QSqlQuery query;
     query.exec(sql);
     if(query.first()){
-        qDebug()<<"login success!";
+        qDebug()<<"check acc success!";
         sql=QString("select usertype from databaseuser where username='%1'and password='%2' ").arg(username).arg(password);
         query.exec(sql);
         query.next();
         UserType=query.value(0).toString();
-        return true;
+        return UserType=="admin";
     }
     else{
         qDebug()<<"login ERROR";
@@ -50,23 +47,9 @@ bool link_mysql(QString username,QString password){
 }
 
 void login::open_interface(QString usertype){
-    qDebug()<<"login with usertype: "+UserType;
-    if(usertype=="admin"){
-        admininterface* w_admin=new admininterface();
-        w_admin->show();
-    }
-    else if(usertype=="user"){
-        userinterface* w_user=new userinterface();
-        w_user->show();
-    }
-    else if(usertype=="buy"){
-        buyinterface* w_buy=new buyinterface();
-        w_buy->show();
-    }
-    else if(usertype=="repair"){
-        userinterface* w_user=new userinterface();
-        w_user->show();
-    }
+    qDebug()<<"login success: "+usertype;
+    admininterface* w_admin=new admininterface();
+    w_admin->show();
 }
 
 void login::on_btn_login_clicked()

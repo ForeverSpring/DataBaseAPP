@@ -98,6 +98,19 @@
     <string>Option</string>
    </property>
   </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>40</y>
+     <width>54</width>
+     <height>12</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>管理端</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

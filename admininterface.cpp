@@ -122,25 +122,12 @@ void admininterface::on_btnsearch_s_clicked()
         sql=add_sql(sql,QString("BuyDate='%1'").arg(ui->dateEditBuy->date().toString("yyyy-MM-dd")));
     }
     model_device->setFilter(sql);
+    if(ui->textEditsplace->toPlainText()!=""){
+        sql=add_sql(sql,QString("Splace='%1'").arg(ui->textEditsplace->toPlainText()));
+    }
+    model_device->setFilter(sql);
     qDebug()<<sql;
     model_device->select();
-}
-
-
-void admininterface::on_btndelete_s_clicked()
-{
-    int curRow=ui->tableViewDevice->currentIndex().row();
-    if(curRow!=-1){
-        model_device->removeRow(curRow);
-        int ok = QMessageBox::warning(this,tr("删除当前行!"),
-        tr("你确定删除当前行吗？ "),QMessageBox::Yes, QMessageBox::No);
-        if(ok == QMessageBox::No)
-        { // 如果不删除， 则撤销
-        model_device->revertAll();
-        } else { // 否则提交， 在数据库中删除该行
-        model_device->submitAll();
-        }
-    }
 }
 
 
@@ -282,14 +269,36 @@ void admininterface::on_btndelete_use_clicked()
 
 void admininterface::on_btnreport_use_clicked()
 {
-    model_use->database().transaction();
-    if (model_use->submitAll()) {
-    model_use->database().commit(); //提交
-    } else {
-    model_use->database().rollback(); //回滚
-    QMessageBox::warning(this, tr("tableModel"),
-    tr("数据库错误: %1").arg(model_use->lastError().text()));
+    int curRow=ui->tableViewUse->currentIndex().row();
+    QString sql_search=QString("Did=%1").arg(model_use->data(model_use->index(curRow,0)).toString());
+    qDebug()<<sql_search;
+    model_device->setFilter(sql_search);
+    QString current=model_device->data(model_device->index(0,5)).toString();
+    qDebug()<<current;
+    bool change=false;
+    if(current=="free"){
+        model_use->database().transaction();
+        if (model_use->submitAll()) {
+        model_use->database().commit(); //提交
+        change=true;
+        } else {
+        model_use->database().rollback(); //回滚
+        QMessageBox::warning(this, tr("tableModel"),
+        tr("数据库错误: %1").arg(model_use->lastError().text()));
+        }
     }
+    if(change){
+        model_device->setData(model_device->index(0,5),"using");
+        model_device->database().transaction();
+        if (model_device->submitAll()) {
+        model_device->database().commit(); //提交
+        } else {
+        model_device->database().rollback(); //回滚
+        QMessageBox::warning(this, tr("tableModel"),
+        tr("数据库错误: %1").arg(model_device->lastError().text()));
+        }
+    }
+
 }
 
 
@@ -311,6 +320,12 @@ void admininterface::on_btnsearch_buy_clicked()
     }
     if(ui->dateEditbuydb->date().toString("yyyy-MM-dd")!="1800-01-01"){
         sql=add_sql(sql,QString("Bdate='%1'").arg(ui->dateEditbuydb->date().toString("yyyy-MM-dd")));
+    }
+    if(ui->textEditbuynum->toPlainText()!=""){
+        sql=add_sql(sql,QString("Bnum='%1'").arg(ui->textEditbuynum->toPlainText()));
+    }
+    if(ui->textEditbuySplace->toPlainText()!=""){
+        sql=add_sql(sql,QString("Splace='%1'").arg(ui->textEditbuySplace->toPlainText()));
     }
     model_buy->setFilter(sql);
     qDebug()<<sql;
@@ -531,6 +546,7 @@ void admininterface::on_btndelete_User_clicked()
 {
     extern QString curname;
     int curRow=ui->tableViewUser->currentIndex().row();
+    bool change=false;
     if(curRow!=-1){
         QString uid2delete=model_user->data(model_user->index(curRow,0)).toString();
         qDebug()<<"try to delete user DBuid="+uid2delete;
@@ -542,17 +558,30 @@ void admininterface::on_btndelete_User_clicked()
         }
         model_DBUser->select();
         model_DBUser->removeRow(0);
-        int ok = QMessageBox::warning(this,tr("删除当前行!"),
-        tr("你确定删除当前行吗？ "),QMessageBox::Yes, QMessageBox::No);
+        int ok = QMessageBox::warning(this,tr("删除当前用户账号!"),
+        tr("你确定删除当前用户吗？\n（不会删除用户的记录） "),QMessageBox::Yes, QMessageBox::No);
         if(ok == QMessageBox::No)
         { // 如果不删除， 则撤销
             model_DBUser->revertAll();
         } else { // 否则提交， 在数据库中删除该行
             model_DBUser->submitAll();
+            change=true;
             qDebug()<<"delete success";
         }
     }
     model_DBUser->revertAll();
+    if(change){
+        int curRow=ui->tableViewUser->currentIndex().row();
+        model_user->setData(model_user->index(curRow,5),"cancel");
+        model_user->database().transaction();
+        if (model_user->submitAll()) {
+        model_user->database().commit(); //提交
+        } else {
+        model_user->database().rollback(); //回滚
+        QMessageBox::warning(this, tr("tableModel"),
+        tr("数据库错误: %1").arg(model_report->lastError().text()));
+        }
+    }
     admininterface::on_btnsearch_User_clicked();
 }
 

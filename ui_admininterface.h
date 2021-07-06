@@ -32,7 +32,6 @@ public:
     QWidget *tabs;
     QPushButton *btnsearch_s;
     QPushButton *btninsert_s;
-    QPushButton *btndelete_s;
     QTextEdit *textEditsid;
     QLabel *labelsid;
     QTextEdit *textEdittid;
@@ -44,6 +43,8 @@ public:
     QTableView *tableViewDevice;
     QPushButton *btnreport_s;
     QPushButton *btnrevert_s;
+    QTextEdit *textEditsplace;
+    QLabel *labelsplace;
     QWidget *tabuser;
     QPushButton *btninsert_User;
     QPushButton *btnsearch_User;
@@ -106,6 +107,10 @@ public:
     QPushButton *btnreport_buy;
     QPushButton *btnrevert_buy;
     QTableView *tableViewBuy;
+    QLabel *labelbuynum;
+    QTextEdit *textEditbuynum;
+    QLabel *labelbuySplace;
+    QTextEdit *textEditbuySplace;
     QWidget *tabreportinfo;
     QPushButton *btndelete_report;
     QLabel *labelreportsid;
@@ -132,6 +137,9 @@ public:
     QPushButton *btnreport_repair;
     QPushButton *btnrevert_repair;
     QTableView *tableViewRepair;
+    QLabel *labelrepairid_2;
+    QLabel *labelrepairsid_2;
+    QLabel *labelrepairday_2;
     QLabel *label;
     QLabel *textUsername;
     QFrame *line;
@@ -153,9 +161,6 @@ public:
         btninsert_s = new QPushButton(tabs);
         btninsert_s->setObjectName(QString::fromUtf8("btninsert_s"));
         btninsert_s->setGeometry(QRect(160, 330, 75, 23));
-        btndelete_s = new QPushButton(tabs);
-        btndelete_s->setObjectName(QString::fromUtf8("btndelete_s"));
-        btndelete_s->setGeometry(QRect(280, 330, 75, 23));
         textEditsid = new QTextEdit(tabs);
         textEditsid->setObjectName(QString::fromUtf8("textEditsid"));
         textEditsid->setGeometry(QRect(520, 40, 131, 31));
@@ -170,18 +175,18 @@ public:
         labeltid->setGeometry(QRect(460, 100, 54, 12));
         labelsdp = new QLabel(tabs);
         labelsdp->setObjectName(QString::fromUtf8("labelsdp"));
-        labelsdp->setGeometry(QRect(460, 150, 54, 12));
+        labelsdp->setGeometry(QRect(460, 200, 54, 12));
         labelsdb = new QLabel(tabs);
         labelsdb->setObjectName(QString::fromUtf8("labelsdb"));
-        labelsdb->setGeometry(QRect(460, 200, 54, 12));
+        labelsdb->setGeometry(QRect(460, 250, 54, 12));
         dateEditCreat = new QDateEdit(tabs);
         dateEditCreat->setObjectName(QString::fromUtf8("dateEditCreat"));
-        dateEditCreat->setGeometry(QRect(520, 150, 110, 22));
+        dateEditCreat->setGeometry(QRect(520, 200, 110, 22));
         dateEditCreat->setDateTime(QDateTime(QDate(1800, 1, 1), QTime(0, 0, 0)));
         dateEditCreat->setCurrentSection(QDateTimeEdit::YearSection);
         dateEditBuy = new QDateEdit(tabs);
         dateEditBuy->setObjectName(QString::fromUtf8("dateEditBuy"));
-        dateEditBuy->setGeometry(QRect(520, 200, 110, 22));
+        dateEditBuy->setGeometry(QRect(520, 250, 110, 22));
         dateEditBuy->setDateTime(QDateTime(QDate(1800, 1, 1), QTime(0, 0, 0)));
         tableViewDevice = new QTableView(tabs);
         tableViewDevice->setObjectName(QString::fromUtf8("tableViewDevice"));
@@ -193,6 +198,12 @@ public:
         btnrevert_s = new QPushButton(tabs);
         btnrevert_s->setObjectName(QString::fromUtf8("btnrevert_s"));
         btnrevert_s->setGeometry(QRect(520, 330, 75, 23));
+        textEditsplace = new QTextEdit(tabs);
+        textEditsplace->setObjectName(QString::fromUtf8("textEditsplace"));
+        textEditsplace->setGeometry(QRect(520, 140, 131, 31));
+        labelsplace = new QLabel(tabs);
+        labelsplace->setObjectName(QString::fromUtf8("labelsplace"));
+        labelsplace->setGeometry(QRect(460, 150, 54, 12));
         tabWidget->addTab(tabs, QString());
         tabuser = new QWidget();
         tabuser->setObjectName(QString::fromUtf8("tabuser"));
@@ -365,10 +376,10 @@ public:
         textEditbuytid->setGeometry(QRect(540, 110, 131, 31));
         labelsbuydb = new QLabel(tabbuyinfo);
         labelsbuydb->setObjectName(QString::fromUtf8("labelsbuydb"));
-        labelsbuydb->setGeometry(QRect(480, 170, 54, 12));
+        labelsbuydb->setGeometry(QRect(480, 270, 54, 12));
         dateEditbuydb = new QDateEdit(tabbuyinfo);
         dateEditbuydb->setObjectName(QString::fromUtf8("dateEditbuydb"));
-        dateEditbuydb->setGeometry(QRect(540, 160, 110, 22));
+        dateEditbuydb->setGeometry(QRect(540, 260, 110, 22));
         dateEditbuydb->setDateTime(QDateTime(QDate(1800, 1, 1), QTime(0, 0, 0)));
         labelbuyid = new QLabel(tabbuyinfo);
         labelbuyid->setObjectName(QString::fromUtf8("labelbuyid"));
@@ -386,6 +397,18 @@ public:
         tableViewBuy->setObjectName(QString::fromUtf8("tableViewBuy"));
         tableViewBuy->setGeometry(QRect(0, 20, 451, 291));
         tableViewBuy->setEditTriggers(QAbstractItemView::AnyKeyPressed|QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed);
+        labelbuynum = new QLabel(tabbuyinfo);
+        labelbuynum->setObjectName(QString::fromUtf8("labelbuynum"));
+        labelbuynum->setGeometry(QRect(480, 170, 54, 12));
+        textEditbuynum = new QTextEdit(tabbuyinfo);
+        textEditbuynum->setObjectName(QString::fromUtf8("textEditbuynum"));
+        textEditbuynum->setGeometry(QRect(540, 160, 131, 31));
+        labelbuySplace = new QLabel(tabbuyinfo);
+        labelbuySplace->setObjectName(QString::fromUtf8("labelbuySplace"));
+        labelbuySplace->setGeometry(QRect(480, 220, 54, 12));
+        textEditbuySplace = new QTextEdit(tabbuyinfo);
+        textEditbuySplace->setObjectName(QString::fromUtf8("textEditbuySplace"));
+        textEditbuySplace->setGeometry(QRect(540, 210, 131, 31));
         tabWidget->addTab(tabbuyinfo, QString());
         tabreportinfo = new QWidget();
         tabreportinfo->setObjectName(QString::fromUtf8("tabreportinfo"));
@@ -468,6 +491,15 @@ public:
         tableViewRepair->setObjectName(QString::fromUtf8("tableViewRepair"));
         tableViewRepair->setGeometry(QRect(20, 20, 451, 291));
         tableViewRepair->setEditTriggers(QAbstractItemView::AnyKeyPressed|QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed);
+        labelrepairid_2 = new QLabel(tabrepairinfo);
+        labelrepairid_2->setObjectName(QString::fromUtf8("labelrepairid_2"));
+        labelrepairid_2->setGeometry(QRect(550, 140, 54, 16));
+        labelrepairsid_2 = new QLabel(tabrepairinfo);
+        labelrepairsid_2->setObjectName(QString::fromUtf8("labelrepairsid_2"));
+        labelrepairsid_2->setGeometry(QRect(550, 190, 54, 12));
+        labelrepairday_2 = new QLabel(tabrepairinfo);
+        labelrepairday_2->setObjectName(QString::fromUtf8("labelrepairday_2"));
+        labelrepairday_2->setGeometry(QRect(550, 240, 54, 12));
         tabWidget->addTab(tabrepairinfo, QString());
         label = new QLabel(admininterface);
         label->setObjectName(QString::fromUtf8("label"));
@@ -483,7 +515,7 @@ public:
 
         retranslateUi(admininterface);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(6);
 
 
         QMetaObject::connectSlotsByName(admininterface);
@@ -494,13 +526,13 @@ public:
         admininterface->setWindowTitle(QCoreApplication::translate("admininterface", "Form", nullptr));
         btnsearch_s->setText(QCoreApplication::translate("admininterface", "\346\237\245\350\257\242", nullptr));
         btninsert_s->setText(QCoreApplication::translate("admininterface", " \345\242\236\345\212\240", nullptr));
-        btndelete_s->setText(QCoreApplication::translate("admininterface", "\345\210\240\351\231\244", nullptr));
         labelsid->setText(QCoreApplication::translate("admininterface", "\350\256\276\345\244\207\347\274\226\345\217\267", nullptr));
         labeltid->setText(QCoreApplication::translate("admininterface", "\350\256\276\345\244\207\345\236\213\345\217\267", nullptr));
         labelsdp->setText(QCoreApplication::translate("admininterface", "\347\224\237\344\272\247\346\227\245\346\234\237", nullptr));
         labelsdb->setText(QCoreApplication::translate("admininterface", "\350\264\255\345\205\245\346\227\245\346\234\237", nullptr));
         btnreport_s->setText(QCoreApplication::translate("admininterface", "\346\217\220\344\272\244\344\277\256\346\224\271", nullptr));
         btnrevert_s->setText(QCoreApplication::translate("admininterface", "\346\222\244\351\224\200\344\277\256\346\224\271", nullptr));
+        labelsplace->setText(QCoreApplication::translate("admininterface", "\345\255\230\346\224\276\345\234\260\347\202\271", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tabs), QCoreApplication::translate("admininterface", "\350\256\276\345\244\207", nullptr));
         btninsert_User->setText(QCoreApplication::translate("admininterface", "\345\242\236\345\212\240", nullptr));
         btnsearch_User->setText(QCoreApplication::translate("admininterface", "\346\237\245\350\257\242", nullptr));
@@ -547,6 +579,8 @@ public:
         labelbuyid->setText(QCoreApplication::translate("admininterface", "\351\207\207\350\264\255\345\215\225\345\217\267", nullptr));
         btnreport_buy->setText(QCoreApplication::translate("admininterface", "\346\217\220\344\272\244\344\277\256\346\224\271", nullptr));
         btnrevert_buy->setText(QCoreApplication::translate("admininterface", "\346\222\244\351\224\200\344\277\256\346\224\271", nullptr));
+        labelbuynum->setText(QCoreApplication::translate("admininterface", "\350\256\276\345\244\207\346\225\260\351\207\217", nullptr));
+        labelbuySplace->setText(QCoreApplication::translate("admininterface", "\345\255\230\346\224\276\345\234\260\347\202\271", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tabbuyinfo), QCoreApplication::translate("admininterface", "\351\207\207\350\264\255", nullptr));
         btndelete_report->setText(QCoreApplication::translate("admininterface", "\345\210\240\351\231\244", nullptr));
         labelreportsid->setText(QCoreApplication::translate("admininterface", "\350\256\276\345\244\207\347\274\226\345\217\267", nullptr));
@@ -565,6 +599,9 @@ public:
         btndelete_repair->setText(QCoreApplication::translate("admininterface", "\345\210\240\351\231\244", nullptr));
         btnreport_repair->setText(QCoreApplication::translate("admininterface", "\346\217\220\344\272\244\344\277\256\346\224\271", nullptr));
         btnrevert_repair->setText(QCoreApplication::translate("admininterface", "\346\222\244\351\224\200\344\277\256\346\224\271", nullptr));
+        labelrepairid_2->setText(QCoreApplication::translate("admininterface", "\347\273\264\344\277\256\345\215\225\345\217\267", nullptr));
+        labelrepairsid_2->setText(QCoreApplication::translate("admininterface", "\350\256\276\345\244\207\347\274\226\345\217\267", nullptr));
+        labelrepairday_2->setText(QCoreApplication::translate("admininterface", "\351\200\201\344\277\256\346\227\245\346\234\237", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tabrepairinfo), QCoreApplication::translate("admininterface", "\347\273\264\344\277\256", nullptr));
         label->setText(QCoreApplication::translate("admininterface", "\347\256\241\347\220\206\347\253\257", nullptr));
         textUsername->setText(QCoreApplication::translate("admininterface", "\346\254\242\350\277\216", nullptr));

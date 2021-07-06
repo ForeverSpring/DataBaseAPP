@@ -29,7 +29,7 @@
     </size>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>6</number>
    </property>
    <widget class="QWidget" name="tabs">
     <attribute name="title">
@@ -59,19 +59,6 @@
      </property>
      <property name="text">
       <string> 增加</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="btndelete_s">
-     <property name="geometry">
-      <rect>
-       <x>280</x>
-       <y>330</y>
-       <width>75</width>
-       <height>23</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>删除</string>
      </property>
     </widget>
     <widget class="QTextEdit" name="textEditsid">
@@ -124,7 +111,7 @@
      <property name="geometry">
       <rect>
        <x>460</x>
-       <y>150</y>
+       <y>200</y>
        <width>54</width>
        <height>12</height>
       </rect>
@@ -137,7 +124,7 @@
      <property name="geometry">
       <rect>
        <x>460</x>
-       <y>200</y>
+       <y>250</y>
        <width>54</width>
        <height>12</height>
       </rect>
@@ -150,7 +137,7 @@
      <property name="geometry">
       <rect>
        <x>520</x>
-       <y>150</y>
+       <y>200</y>
        <width>110</width>
        <height>22</height>
       </rect>
@@ -173,7 +160,7 @@
      <property name="geometry">
       <rect>
        <x>520</x>
-       <y>200</y>
+       <y>250</y>
        <width>110</width>
        <height>22</height>
       </rect>
@@ -226,6 +213,29 @@
      </property>
      <property name="text">
       <string>撤销修改</string>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="textEditsplace">
+     <property name="geometry">
+      <rect>
+       <x>520</x>
+       <y>140</y>
+       <width>131</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelsplace">
+     <property name="geometry">
+      <rect>
+       <x>460</x>
+       <y>150</y>
+       <width>54</width>
+       <height>12</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>存放地点</string>
      </property>
     </widget>
    </widget>
@@ -898,7 +908,7 @@
      <property name="geometry">
       <rect>
        <x>480</x>
-       <y>170</y>
+       <y>270</y>
        <width>54</width>
        <height>12</height>
       </rect>
@@ -911,7 +921,7 @@
      <property name="geometry">
       <rect>
        <x>540</x>
-       <y>160</y>
+       <y>260</y>
        <width>110</width>
        <height>22</height>
       </rect>
@@ -987,6 +997,52 @@
      </property>
      <property name="editTriggers">
       <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelbuynum">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>170</y>
+       <width>54</width>
+       <height>12</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>设备数量</string>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="textEditbuynum">
+     <property name="geometry">
+      <rect>
+       <x>540</x>
+       <y>160</y>
+       <width>131</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelbuySplace">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>220</y>
+       <width>54</width>
+       <height>12</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>存放地点</string>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="textEditbuySplace">
+     <property name="geometry">
+      <rect>
+       <x>540</x>
+       <y>210</y>
+       <width>131</width>
+       <height>31</height>
+      </rect>
      </property>
     </widget>
    </widget>
@@ -1311,6 +1367,45 @@
      </property>
      <property name="editTriggers">
       <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelrepairid_2">
+     <property name="geometry">
+      <rect>
+       <x>550</x>
+       <y>140</y>
+       <width>54</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>维修单号</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelrepairsid_2">
+     <property name="geometry">
+      <rect>
+       <x>550</x>
+       <y>190</y>
+       <width>54</width>
+       <height>12</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>设备编号</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelrepairday_2">
+     <property name="geometry">
+      <rect>
+       <x>550</x>
+       <y>240</y>
+       <width>54</width>
+       <height>12</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>送修日期</string>
      </property>
     </widget>
    </widget>

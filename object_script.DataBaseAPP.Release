@@ -1,17 +1,11 @@
 release/adduser.o
 release/admininterface.o
-release/buyinterface.o
 release/login.o
 release/main.o
 release/mainwindow.o
 release/option.o
-release/repair.o
-release/userinterface.o
 release/moc_adduser.o
 release/moc_admininterface.o
-release/moc_buyinterface.o
 release/moc_login.o
 release/moc_mainwindow.o
 release/moc_option.o
-release/moc_repair.o
-release/moc_userinterface.o

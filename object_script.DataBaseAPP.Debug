@@ -1,17 +1,11 @@
 debug/adduser.o
 debug/admininterface.o
-debug/buyinterface.o
 debug/login.o
 debug/main.o
 debug/mainwindow.o
 debug/option.o
-debug/repair.o
-debug/userinterface.o
 debug/moc_adduser.o
 debug/moc_admininterface.o
-debug/moc_buyinterface.o
 debug/moc_login.o
 debug/moc_mainwindow.o
 debug/moc_option.o
-debug/moc_repair.o
-debug/moc_userinterface.o
