@@ -1,3 +1,4 @@
 # DataBaseAPP
+HFUT数据库课设
 EquipmentManagementSystem
 qt和mysql开发的设备管理系统
