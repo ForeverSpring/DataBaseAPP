@@ -47,6 +47,8 @@ bool link_mysql(QString username,QString password){
 }
 
 void login::open_interface(QString usertype){
+    qDebug()<<db.hostName();
+    qDebug()<<db.port();
     qDebug()<<"login success: "+usertype;
     admininterface* w_admin=new admininterface();
     w_admin->show();

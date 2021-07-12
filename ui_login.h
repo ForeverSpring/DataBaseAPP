@@ -28,6 +28,7 @@ public:
     QLineEdit *lineEditAcc;
     QLineEdit *lineEditPswd;
     QPushButton *btn_option;
+    QLabel *label;
 
     void setupUi(QWidget *login)
     {
@@ -55,6 +56,9 @@ public:
         btn_option = new QPushButton(login);
         btn_option->setObjectName(QString::fromUtf8("btn_option"));
         btn_option->setGeometry(QRect(460, 380, 75, 23));
+        label = new QLabel(login);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setGeometry(QRect(320, 40, 54, 12));
 
         retranslateUi(login);
 
@@ -69,6 +73,7 @@ public:
         btn_login->setText(QCoreApplication::translate("login", "\347\231\273\345\275\225", nullptr));
         btn_exit->setText(QCoreApplication::translate("login", "\351\200\200\345\207\272", nullptr));
         btn_option->setText(QCoreApplication::translate("login", "Option", nullptr));
+        label->setText(QCoreApplication::translate("login", "\347\256\241\347\220\206\347\253\257", nullptr));
     } // retranslateUi
 
 };
